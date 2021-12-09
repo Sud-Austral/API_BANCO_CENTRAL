@@ -9,20 +9,20 @@ def getData(codigo):
     F_Final = datetime.datetime.now() 
     Fecha_final   = F_Final.strftime("%Y-%m-%d")
     url = f"https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=169073872&pass=3HyzXWj5eSs8&firstdate=2000-01-01&lastdate={Fecha_final}&timeseries={codigo}&function=GetSeries"
-    print(url)
+    #print(url)
     response = requests.get(url)
     response1 = response.json()
-    print(response1)
+    #print(response1)
     response2 = response1["Series"]["Obs"]
     df = pd.DataFrame(response2)
-    print(len(df))
+    #print(len(df))
     df.to_excel(f"Data/{codigo}.xlsx", index=False)
     return True
 
 def proceso():
     ruta = r"Resource/series.xls"
     serie = pd.read_excel(ruta)
-    for i in serie["Código"][:3]:
+    for i in serie["Código"]:
         try:
             print(i)
             getData(i)
