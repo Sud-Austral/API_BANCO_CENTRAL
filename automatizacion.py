@@ -2,7 +2,7 @@ import requests
 import json
 import pandas as pd
 import datetime
-
+import sys
 
 def getData(codigo):
     #print(codigo)
@@ -23,7 +23,8 @@ def proceso():
             print(i)
             print(len(pd.read_csv(f"{i}.csv")))
         except:
-            pass
+            error = sys.exc_info()[1]
+            print(error)
 
 if __name__ == '__main__':
     proceso();
