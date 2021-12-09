@@ -21,7 +21,7 @@ def proceso():
     for i in serie["Código"][:3]:
         try:
             print(i)
-            print(len(pd.read_csv(f"{i}.csv")))
+            getData(i)
         except:
             error = sys.exc_info()[1]
             print(error)
