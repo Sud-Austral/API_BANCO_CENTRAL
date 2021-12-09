@@ -11,6 +11,7 @@ def getData(codigo):
     url = f"https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=169073872&pass=3HyzXWj5eSs8&firstdate=2000-01-01&lastdate={F_Final}&timeseries={codigo}&function=GetSeries"
     response = requests.get(url)
     response1 = response.json()
+    print(response1)
     response2 = response1["Series"]["Obs"]
     df = pd.DataFrame(response2)
     print(len(df))
