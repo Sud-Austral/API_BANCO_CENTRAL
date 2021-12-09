@@ -9,6 +9,7 @@ def getData(codigo):
     F_Final = datetime.datetime.now() 
     Fecha_final   = F_Final.strftime("%Y-%m-%d")
     url = f"https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=169073872&pass=3HyzXWj5eSs8&firstdate=2000-01-01&lastdate={F_Final}&timeseries={codigo}&function=GetSeries"
+    print(url)
     response = requests.get(url)
     response1 = response.json()
     print(response1)
