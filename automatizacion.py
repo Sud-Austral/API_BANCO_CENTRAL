@@ -12,7 +12,9 @@ def getData(codigo):
     response = requests.get(url)
     response1 = response.json()
     response2 = response1["Series"]["Obs"]
-    pd.DataFrame(response2).to_excel(f"Data/{codigo}.xlsx", index=False)
+    df = pd.DataFrame(response2)
+    print(len(df))
+    df.to_excel(f"Data/{codigo}.xlsx", index=False)
     return True
 
 def proceso():
