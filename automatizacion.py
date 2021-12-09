@@ -16,7 +16,7 @@ def getData(codigo):
     return True
 
 def proceso():
-    ruta = r"Resource\series.xls"
+    ruta = r"Resource/series.xls"
     serie = pd.read_excel(ruta)
     for i in serie["Código"][:3]:
         try:
