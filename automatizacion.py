@@ -22,7 +22,7 @@ def getData(codigo):
     df.to_excel(f"Data/{codigo}.xlsx", index=False)
     print(datetime.datetime.now())
     return True
-"""
+
 def proceso():
     #ruta = r"Resource/series.xls"
     ruta = r"Resource/Referencia_diaria.xlsx"
@@ -36,7 +36,7 @@ def proceso():
         except:
             error = sys.exc_info()[1]
             print(error)
-"""
+
 if __name__ == '__main__':
     print("Comenzo...")
     #proceso()
