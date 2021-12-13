@@ -25,7 +25,9 @@ def proceso():
     #ruta = r"Resource/series.xls"
     ruta = r"Resource/Referencia_diaria.xlsx"
     serie = pd.read_excel(ruta)
-    for i in serie["Código"]:
+    
+    #for i in serie["Código"]:
+    for i in serie["seriesId"]:
         try:
             print(i)
             getData(i)
