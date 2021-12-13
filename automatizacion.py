@@ -36,7 +36,8 @@ def proceso():
         except:
             error = sys.exc_info()[1]
             print(error)
-
+    return None
+    
 if __name__ == '__main__':
     print("Comenzo...")
     #proceso()
