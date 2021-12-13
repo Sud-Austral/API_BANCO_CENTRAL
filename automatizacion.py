@@ -24,7 +24,7 @@ def proceso():
     serie = pd.read_excel(ruta)
     for i in serie["Código"]:
         try:
-            print(i)
+            #print(i)
             getData(i)
         except:
             error = sys.exc_info()[1]
