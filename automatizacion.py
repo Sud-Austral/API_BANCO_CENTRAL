@@ -12,7 +12,7 @@ def getData(codigo):
     Fecha_final   = F_Final.strftime("%Y-%m-%d")
     url = f"https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=169073872&pass=3HyzXWj5eSs8&firstdate=2000-01-01&lastdate={Fecha_final}&timeseries={codigo}&function=GetSeries"
     #print(url)
-    print(datetime.datetime.now())
+    #print(datetime.datetime.now())
     response = requests.get(url)
     response1 = response.json()
     #print(response1)
@@ -20,7 +20,7 @@ def getData(codigo):
     df = pd.DataFrame(response2)
     #print(len(df))
     df.to_excel(f"Data/{codigo}.xlsx", index=False)
-    print(datetime.datetime.now())
+    #print(datetime.datetime.now())
     return True
 
 def proceso():
@@ -32,7 +32,7 @@ def proceso():
     for i in serie["seriesId"][:100]:
         try:
             print(i)
-            getData(i)
+            #getData(i)
         except:
             error = sys.exc_info()[1]
             print(error)
