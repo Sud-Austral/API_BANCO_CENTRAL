@@ -22,7 +22,7 @@ def getData(codigo):
 def proceso():
     ruta = r"Resource/series.xls"
     serie = pd.read_excel(ruta)
-    for i in serie["Código"]:
+    for i in serie["Código"][:500]:
         try:
             #print(i)
             getData(i)
