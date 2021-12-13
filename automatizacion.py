@@ -5,7 +5,7 @@ import datetime
 import sys
 
 
-"""
+
 def getData(codigo):
     #print(codigo)
     F_Final = datetime.datetime.now() 
@@ -22,7 +22,7 @@ def getData(codigo):
     df.to_excel(f"Data/{codigo}.xlsx", index=False)
     print(datetime.datetime.now())
     return True
-
+"""
 def proceso():
     #ruta = r"Resource/series.xls"
     ruta = r"Resource/Referencia_diaria.xlsx"
