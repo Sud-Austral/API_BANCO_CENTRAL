@@ -37,7 +37,7 @@ def proceso():
     serie = pd.read_excel(ruta)
     
     #for i in serie["Código"]:
-    for i in serie["seriesId"][:1]:
+    for i in serie["seriesId"][:400]:
         try:
             print(i)
             getData(i)
