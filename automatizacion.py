@@ -36,5 +36,5 @@ def proceso():
             print(error)
 
 if __name__ == '__main__':
-    print("Comenzo...")
+    #print("Comenzo...")
     proceso()
