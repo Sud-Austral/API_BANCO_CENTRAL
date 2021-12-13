@@ -29,7 +29,7 @@ def proceso():
     serie = pd.read_excel(ruta)
     
     #for i in serie["Código"]:
-    for i in serie["seriesId"]:
+    for i in serie["seriesId"][:100]:
         try:
             print(i)
             getData(i)
@@ -37,7 +37,7 @@ def proceso():
             error = sys.exc_info()[1]
             print(error)
     return None
-    
+
 if __name__ == '__main__':
     print("Comenzo...")
-    #proceso()
+    proceso()
