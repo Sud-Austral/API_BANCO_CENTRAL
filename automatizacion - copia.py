@@ -4,8 +4,6 @@ import pandas as pd
 import datetime
 import sys
 
-
-"""
 def getData(codigo):
     #print(codigo)
     F_Final = datetime.datetime.now() 
@@ -36,7 +34,7 @@ def proceso():
         except:
             error = sys.exc_info()[1]
             print(error)
-"""
+
 if __name__ == '__main__':
-    print("Comenzo...")
-    #proceso()
+    #print("Comenzo...")
+    proceso()
