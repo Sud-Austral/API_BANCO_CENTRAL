@@ -14,6 +14,9 @@ def getPass():
         salida2 = salida2 + dct[i]
     return salida2
 
+def getSeries():
+    serie = pd.read_excel(r"series.xls")
+    return serie
 #F074.IPC.VAR.Z.Z.C.M
 
 def getPrueba():
@@ -76,3 +79,4 @@ def proceso():
 if __name__ == '__main__':
     print("Comenzo...")
     getPrueba()
+    print(getSeries())
