@@ -36,7 +36,7 @@ def getPrueba():
     df.to_excel("text.xlsx")
     print(df)
 
-def getData(codigo, password):
+def getData2(codigo, password):
     #print(codigo)
     url = f"https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=169073872&pass={password}&firstdate=2000-01-01&lastdate=2021-12-31&timeseries={codigo}&function=GetSeries"
     response = requests.get(url)    
@@ -67,7 +67,7 @@ def DescargaMasiva():
     for i in serie["Código"]:
         frecuencia = i.split(".")[-1]
         #print(frecuencia)
-        df = getData(i,password)
+        df = getData2(i,password)
         if(len(df) == 0):
             error.append(i)
         else:
