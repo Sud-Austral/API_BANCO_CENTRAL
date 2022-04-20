@@ -30,6 +30,7 @@ def getPrueba():
     response2 = response1["Series"]["Obs"]
     #print(7)
     df = pd.DataFrame(response2)
+    df.to_excel("text.xlsx")
     print(df)
 
 def getData(codigo):
