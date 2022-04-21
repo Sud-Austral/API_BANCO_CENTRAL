@@ -80,6 +80,7 @@ def DescargaMasiva():
                 del diario["value"]
                 del diario["statusCode"]
                 del diario["Codigo"]
+            """
             elif(frecuencia == "M"):
                 mensual = mensual.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 mensual[i] = mensual["value"] 
@@ -98,10 +99,11 @@ def DescargaMasiva():
                 del anual["value"]
                 del anual["statusCode"]
                 del anual["Codigo"]
-    diario.to_excel("dataEstructurado/diario1.xlsx", index=False)
-    mensual.to_excel("dataEstructurado/mensual1.xlsx", index=False)
-    trimestral.to_excel("dataEstructurado/trimestral1.xlsx", index=False) 
-    anual.to_excel("dataEstructurado/anual1.xlsx", index=False)
+            """
+    diario.to_excel("dataEstructurado/diario.xlsx", index=False)
+    #mensual.to_excel("dataEstructurado/mensual1.xlsx", index=False)
+    #trimestral.to_excel("dataEstructurado/trimestral1.xlsx", index=False) 
+    #anual.to_excel("dataEstructurado/anual1.xlsx", index=False)
     return
 
 
