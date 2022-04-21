@@ -64,7 +64,7 @@ def DescargaMasiva():
     anual = referenciaFecha
     error = []
     n = 1
-    for i in serie["Código"][:50]:
+    for i in serie["Código"][:30]:
         frecuencia = i.split(".")[-1]
         #print(frecuencia)
         
@@ -81,10 +81,11 @@ def DescargaMasiva():
             try:     
                 diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 diario[i] = diario["value"] 
-                print(diario.head(5))
+                
                 del diario["value"]
                 del diario["statusCode"]
                 del diario["Codigo"]
+                print(diario.head(5))
             except:
                 pass
             """
