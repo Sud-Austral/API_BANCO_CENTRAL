@@ -69,21 +69,24 @@ def DescargaMasiva():
         #print(frecuencia)
         
         
-        if(len(df) == 0):
-            error.append(i)
-        else:
-            print(i)
-            print(f"Llevamos {n} de {len(serie)}")
-            n = n + 1
-            if(frecuencia == "D"): 
-                df = getData2(i,password)
-                print(df.head(3))       
+        #if(len(df) == 0):
+        #    error.append(i)
+        #else:
+        print(i)
+        print(f"Llevamos {n} de {len(serie)}")
+        n = n + 1
+        if(frecuencia == "D"): 
+            df = getData2(i,password)
+            print(df.head(3))  
+            try:     
                 diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 diario[i] = diario["value"] 
                 print(diario.head(5))
                 del diario["value"]
                 del diario["statusCode"]
                 del diario["Codigo"]
+            except:
+                pass
             """
             elif(frecuencia == "M"):
                 mensual = mensual.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
