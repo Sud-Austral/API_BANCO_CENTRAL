@@ -64,7 +64,7 @@ def DescargaMasiva():
     anual = referenciaFecha
     error = []
     n = 1
-    for i in serie["Código"][:100]:
+    for i in serie["Código"]:
         frecuencia = i.split(".")[-1]
         #print(frecuencia)
         df = getData2(i,password)
