@@ -77,7 +77,7 @@ def DescargaMasiva():
         n = n + 1
         if(frecuencia == "D"): 
             df = getData2(i,password)
-            print(df.head(3))  
+            print(df.head(2))  
             try:     
                 diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 diario[i] = diario["value"] 
