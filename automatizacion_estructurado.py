@@ -64,19 +64,23 @@ def DescargaMasiva():
     anual = referenciaFecha
     error = []
     n = 1
-    for i in serie["Código"]:
+    for i in serie["Código"][:50]:
         frecuencia = i.split(".")[-1]
         #print(frecuencia)
-        df = getData2(i,password)
+        
+        
         if(len(df) == 0):
             error.append(i)
         else:
             print(i)
             print(f"Llevamos {n} de {len(serie)}")
             n = n + 1
-            if(frecuencia == "D"):        
+            if(frecuencia == "D"): 
+                df = getData2(i,password)
+                print(df.head(3))       
                 diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 diario[i] = diario["value"] 
+                print(diario.head(5))
                 del diario["value"]
                 del diario["statusCode"]
                 del diario["Codigo"]
