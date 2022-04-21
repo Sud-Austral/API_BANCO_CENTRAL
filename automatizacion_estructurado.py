@@ -3,6 +3,7 @@ import json
 import pandas as pd
 import datetime
 import sys
+import os
 
 
 def getPass():
@@ -72,13 +73,14 @@ def DescargaMasiva():
         #if(len(df) == 0):
         #    error.append(i)
         #else:
-        print(i)
-        print(f"Llevamos {n} de {len(serie)}")
+        
         n = n + 1
         if(frecuencia == "D"): 
             df = getData2(i,password)
             print(df.head(2))  
-            try:     
+            try:   
+                print(i)
+                print(f"Llevamos {n} de {len(serie)}")  
                 diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 diario[i] = diario["value"] 
                 del diario["indexDateString"]
@@ -86,6 +88,9 @@ def DescargaMasiva():
                 del diario["statusCode"]
                 del diario["Codigo"]
                 print(diario.columns)
+                diario.to_excel("dataEstructurado/diario.xlsx", index=False)
+                file_size = os.path.getsize(r'dataEstructurado/diario.xlsx') 
+                print('File Size:', file_size, 'bytes')
             except:
                 pass
             """
@@ -108,7 +113,7 @@ def DescargaMasiva():
                 del anual["statusCode"]
                 del anual["Codigo"]
             """
-    diario.to_excel("dataEstructurado/diario.xlsx", index=False)
+    
     #mensual.to_excel("dataEstructurado/mensual1.xlsx", index=False)
     #trimestral.to_excel("dataEstructurado/trimestral1.xlsx", index=False) 
     #anual.to_excel("dataEstructurado/anual1.xlsx", index=False)
