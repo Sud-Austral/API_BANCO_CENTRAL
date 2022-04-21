@@ -76,8 +76,7 @@ def DescargaMasiva():
         
         n = n + 1
         if(frecuencia == "D"): 
-            df = getData2(i,password)
-            print(df.head(2))  
+            df = getData2(i,password)  
             try:   
                 print(i)
                 print(f"Llevamos {n} de {len(serie)}")  
