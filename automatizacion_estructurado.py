@@ -85,7 +85,7 @@ def DescargaMasiva():
                 del diario["value"]
                 del diario["statusCode"]
                 del diario["Codigo"]
-                print(diario.head(5))
+                print(diario.columns)
             except:
                 pass
             """
