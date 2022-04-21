@@ -16,7 +16,7 @@ def getPass():
     return salida2
 
 def getSeries():
-    serie = pd.read_excel(r"dataEstructurado/series.xls")
+    serie = pd.read_excel(r"dataEstructurado/series.xlsx")
     return serie
 #F074.IPC.VAR.Z.Z.C.M
 
