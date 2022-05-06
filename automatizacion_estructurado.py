@@ -68,16 +68,23 @@ def DescargaMasiva():
     for i in serie["Código"]:
         frecuencia = i.split(".")[-1]
         #print(frecuencia)
-        
-        
         #if(len(df) == 0):
         #    error.append(i)
         #else:
-        
-        n = n + 1
         print(i)
         print(f"Llevamos {n} de {len(serie)}")
-        df = getData2(i,password)
+        try:
+            df = getData2(i,password)
+            print("Descarga lista al primer intento")
+        except:
+            try:
+                df = getData2(i,password)
+                print("Descarga lista al segundo intento")
+            except:
+                print("Error")
+                frecuencia == "Error"
+        #df = getData2(i,password)
+        n = n + 1
         try:
             if(frecuencia == "D"):
                 diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
@@ -210,4 +217,4 @@ def proceso():
 
 if __name__ == '__main__':
     print("Comenzo...")
-    DescargaMasiva()
+    #DescargaMasiva()
