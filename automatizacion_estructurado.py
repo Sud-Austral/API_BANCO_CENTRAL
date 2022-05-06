@@ -75,9 +75,9 @@ def DescargaMasiva():
         #else:
         
         n = n + 1
-        if(frecuencia == "D"): 
-            df = getData2(i,password)  
-            try:   
+        try: 
+            if(frecuencia == "D"): 
+                df = getData2(i,password)  
                 print(i)
                 print(f"Llevamos {n} de {len(serie)}")  
                 diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
@@ -90,28 +90,31 @@ def DescargaMasiva():
                 diario.to_excel("dataEstructurado/diario.xlsx", index=False)
                 file_size = os.path.getsize(r'dataEstructurado/diario.xlsx') 
                 print('File Size:', file_size, 'bytes')
-            except:
-                pass
-            """
+
             elif(frecuencia == "M"):
                 mensual = mensual.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 mensual[i] = mensual["value"] 
                 del mensual["value"]
                 del mensual["statusCode"]
                 del mensual["Codigo"]
+                mensual.to_excel("dataEstructurado/mensual1.xlsx", index=False)
             elif(frecuencia == "T"):
                 trimestral = trimestral.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 trimestral[i] = trimestral["value"] 
                 del trimestral["value"]
                 del trimestral["statusCode"]
                 del trimestral["Codigo"]
+                trimestral.to_excel("dataEstructurado/trimestral1.xlsx", index=False)
             elif(frecuencia == "T"):
                 anual = anual.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 anual[i] = anual["value"] 
                 del anual["value"]
                 del anual["statusCode"]
                 del anual["Codigo"]
-            """
+                anual.to_excel("dataEstructurado/anual1.xlsx", index=False)
+        except:
+            pass
+            
     
     #mensual.to_excel("dataEstructurado/mensual1.xlsx", index=False)
     #trimestral.to_excel("dataEstructurado/trimestral1.xlsx", index=False) 
