@@ -65,7 +65,7 @@ def DescargaMasiva():
     anual = referenciaFecha
     error = []
     n = 1
-    for i in serie["Código"][:5]:
+    for i in serie["Código"][:50]:
         frecuencia = i.split(".")[-1]
         #print(frecuencia)
         #if(len(df) == 0):
@@ -82,6 +82,8 @@ def DescargaMasiva():
                 print("Descarga lista al segundo intento")
             except:
                 print("Error")
+                error = sys.exc_info()[1]
+                print(error)
                 frecuencia == "Error"
         #df = getData2(i,password)
         n = n + 1

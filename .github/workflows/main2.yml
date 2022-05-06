@@ -23,8 +23,10 @@ jobs:
         python-version: 3.7
     - name: AUTOMATIZACIÓN
       run: |
+        echo "Vamos Bien"
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        echo "Vamos a lo importante..."
         python automatizacion_estructurado.py
 
     - uses: stefanzweifel/git-auto-commit-action@v2
