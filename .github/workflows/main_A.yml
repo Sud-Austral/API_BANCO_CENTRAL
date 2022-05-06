@@ -3,10 +3,10 @@ name: DE Anual
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  #schedule:
-  #  - cron:  '0 6 * * *'
+  #push:
+  #  branches: [ main ]
+  schedule:
+    - cron:  '0 * * * 1'
   #  - cron:  '50 17 * * *'
 
 jobs:
