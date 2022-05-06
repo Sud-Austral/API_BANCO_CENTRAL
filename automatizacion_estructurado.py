@@ -65,7 +65,7 @@ def DescargaMasiva():
     anual = referenciaFecha
     error = []
     n = 1
-    for i in serie["Código"][:1]:
+    for i in serie["Código"][:5]:
         frecuencia = i.split(".")[-1]
         #print(frecuencia)
         #if(len(df) == 0):
