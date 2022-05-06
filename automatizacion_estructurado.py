@@ -77,6 +77,48 @@ def DescargaMasiva():
         n = n + 1
         print(i)
         print(f"Llevamos {n} de {len(serie)}")
+        df = getData2(i,password)
+        try:
+            if(frecuencia == "D"):
+                diario = diario.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
+                diario[i] = diario["value"] 
+                del diario["indexDateString"]
+                del diario["value"]
+                del diario["statusCode"]
+                del diario["Codigo"]
+                print(diario.columns)
+                diario.to_excel("dataEstructurado/diario.xlsx", index=False)
+                print("Diario listo")
+            elif(frecuencia == "M"):
+                mensual = mensual.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
+                mensual[i] = mensual["value"] 
+                del mensual["indexDateString"]
+                del mensual["value"]
+                del mensual["statusCode"]
+                del mensual["Codigo"]
+                mensual.to_excel("dataEstructurado/mensual.xlsx", index=False)
+                print("Mensual listo")
+            elif(frecuencia == "T"):
+                trimestral = trimestral.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
+                trimestral[i] = trimestral["value"] 
+                del trimestral["indexDateString"]
+                del trimestral["value"]
+                del trimestral["statusCode"]
+                del trimestral["Codigo"]
+                trimestral.to_excel("dataEstructurado/trimestral.xlsx", index=False)
+                print("Trimestre listo")
+            elif(frecuencia == "T"):
+                anual = anual.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
+                anual[i] = anual["value"]
+                del anual["indexDateString"] 
+                del anual["value"]
+                del anual["statusCode"]
+                del anual["Codigo"]
+                anual.to_excel("dataEstructurado/anual.xlsx", index=False)
+                print("Anual listo")
+        except:
+            print("Problema")
+
         """
         try: 
             if(frecuencia == "D"): 
