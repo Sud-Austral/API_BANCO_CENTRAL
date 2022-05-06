@@ -116,7 +116,7 @@ def DescargaMasiva():
                 del trimestral["Codigo"]
                 trimestral.to_excel("dataEstructurado/trimestral.xlsx", index=False)
                 print("Trimestre listo")
-            elif(frecuencia == "T"):
+            elif(frecuencia == "A"):
                 anual = anual.merge(df, left_on="Fecha", right_on="indexDateString", how="left")
                 anual[i] = anual["value"]
                 del anual["indexDateString"] 
