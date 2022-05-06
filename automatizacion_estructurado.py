@@ -75,6 +75,9 @@ def DescargaMasiva():
         #else:
         
         n = n + 1
+        print(i)
+        print(f"Llevamos {n} de {len(serie)}")
+        """
         try: 
             if(frecuencia == "D"): 
                 df = getData2(i,password)  
@@ -114,6 +117,7 @@ def DescargaMasiva():
                 anual.to_excel("dataEstructurado/anual1.xlsx", index=False)
         except:
             pass
+        """
             
     
     #mensual.to_excel("dataEstructurado/mensual1.xlsx", index=False)
