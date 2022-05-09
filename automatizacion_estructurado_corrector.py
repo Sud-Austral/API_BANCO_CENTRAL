@@ -5,6 +5,14 @@ import datetime
 import sys
 import os
 
+def limpiarData(texto):
+    try:
+        num = int(texto)
+        num = str(num).replace(".",",")
+        return num
+    except:
+        return None
+
 def DescargaMasiva():
     #diario.to_excel("dataEstructurado/diario.xlsx", index=False)
     #mensual.to_excel("dataEstructurado/mensual.xlsx", index=False)
@@ -14,10 +22,28 @@ def DescargaMasiva():
     mensual = pd.read_excel("dataEstructurado/mensual.xlsx")
     trimestral = pd.read_excel("dataEstructurado/trimestral.xlsx")
     anual = pd.read_excel("dataEstructurado/anual.xlsx")
-    print(diario.columns)
-    print(mensual.columns)
-    print(trimestral.columns)
-    print(anual.columns)  
+
+    for i in diario.columns[1:]:
+        print(i)
+        diario[i] = diario[i].apply(limpiarData)
+
+    for i in mensual.columns[1:]:
+        print(i)
+        mensual[i] = mensual[i].apply(limpiarData)
+
+    for i in trimestral.columns[1:]:
+        print(i)
+        trimestral[i] = trimestral[i].apply(limpiarData) 
+
+    for i in anual.columns[1:]:
+        print(i)
+        anual[i] = anual[i].apply(limpiarData)  
+
+    diario.to_csv("dataEstructurado/diario.csv", index=False)
+    mensual.to_csv("dataEstructurado/mensual.csv", index=False)
+    trimestral.to_csv("dataEstructurado/trimestral.csv", index=False)
+    anual.to_csv("dataEstructurado/anual.csv", index=False)
+      
     return
 
 
