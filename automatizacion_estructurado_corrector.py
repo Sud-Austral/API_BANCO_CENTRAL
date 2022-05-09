@@ -7,7 +7,7 @@ import os
 
 def limpiarData(texto):
     try:
-        num = int(texto)
+        num = float(texto)
         num = str(num).replace(".",",")
         return num
     except:
